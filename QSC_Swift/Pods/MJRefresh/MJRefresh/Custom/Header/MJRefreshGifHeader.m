@@ -55,9 +55,10 @@
     
     /* 根据图片设置控件的高度 */ 
     UIImage *image = [images firstObject]; 
-    if (image.size.height > self.mj_h) { 
-        self.mj_h = image.size.height; 
-    } 
+    if (image.size.height > self.mj_h) {
+        self.mj_h = 65.0;;
+//        self.mj_h = image.size.height;
+    }
 }
 
 - (void)setImages:(NSArray *)images forState:(MJRefreshState)state 
@@ -94,10 +95,13 @@
     if (self.gifView.constraints.count) return;
     
     self.gifView.frame = self.bounds;
+    
+    self.gifView.mj_h = 50.0;
+    
     if (self.stateLabel.hidden && self.lastUpdatedTimeLabel.hidden) {
-        self.gifView.contentMode = UIViewContentModeCenter;
+        self.gifView.contentMode = UIViewContentModeScaleAspectFit;
     } else {
-        self.gifView.contentMode = UIViewContentModeRight;
+        self.gifView.contentMode = UIViewContentModeScaleAspectFit;
         
         CGFloat stateWidth = self.stateLabel.mj_textWith;
         CGFloat timeWidth = 0.0;
@@ -105,7 +109,12 @@
             timeWidth = self.lastUpdatedTimeLabel.mj_textWith;
         }
         CGFloat textWidth = MAX(stateWidth, timeWidth);
-        self.gifView.mj_w = self.mj_w * 0.5 - textWidth * 0.5 - self.labelLeftInset;
+//        self.gifView.mj_w = self.mj_w * 0.5 - textWidth * 0.5 - self.labelLeftInset;
+//        self.stateLabel.mj_y =  self.gifView.mj_h;
+        self.stateLabel.mj_x = 0;
+        self.stateLabel.mj_y = 50;
+        self.stateLabel.mj_w = self.bounds.size.width;
+        self.stateLabel.mj_h = 10;
     }
 }
 

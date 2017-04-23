@@ -12,7 +12,7 @@ DEPENDENCIES:
   - Alamofire (~> 4.0)
   - MBProgressHUD (~> 1.0.0)
   - MJExtension
-  - MJRefresh (~> 3.1.0)
+  - MJRefresh
   - SDWebImage
   - SwiftyJSON (~> 3.1.3)
 
@@ -24,6 +24,6 @@ SPEC CHECKSUMS:
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 913461b09344c92ce6d32ed7985619ce45915e74
+PODFILE CHECKSUM: f7ff9301c151ee887593b0ef8cdcd4e99cbcfc45
 
-COCOAPODS: 1.2.0.beta.3
+COCOAPODS: 1.2.1.beta.1

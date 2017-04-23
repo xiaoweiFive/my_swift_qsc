@@ -102,7 +102,7 @@ class CirCleView: UIView, UIScrollViewDelegate {
         contentScrollView.delegate = self
         contentScrollView.bounces = false
         contentScrollView.isPagingEnabled = true
-        contentScrollView.backgroundColor = UIColor.green
+//        contentScrollView.backgroundColor = UIColor.green
         contentScrollView.showsHorizontalScrollIndicator = false
         self.addSubview(contentScrollView)
         
@@ -216,6 +216,10 @@ class CirCleView: UIView, UIScrollViewDelegate {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 
+        
+        if (self.urlImageArray == nil) {
+            return
+        }
         let offset = scrollView.contentOffset.x
         if offset == 0 {
             self.indexOfCurrentImage = self.getLastImageIndex(indexOfCurrentImage: self.indexOfCurrentImage)
