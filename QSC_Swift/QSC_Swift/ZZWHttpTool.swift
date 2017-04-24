@@ -57,7 +57,7 @@ class ZZWHttpTools {
         
         _ = getSessionconfig()
         
-        manger?.request(path, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).validate().responseJSON(completionHandler: { (response) in
+        manger?.request(path, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: requestHeader).validate().responseJSON(completionHandler: { (response) in
             print(response)
             switch response.result {
             case .success:

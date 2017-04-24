@@ -158,9 +158,10 @@ class CirCleView: UIView, UIScrollViewDelegate {
 //            imageIndex = 0
 //        }
         
-        self.currentImageView.sd_setImage(with: URL.init(string: (self.urlImageArray?[indexOfCurrentImage])!))
-        self.nextImageView.sd_setImage(with: URL.init(string: (self.urlImageArray?[self.getNextImageIndex(indexOfCurrentImage: indexOfCurrentImage)])!))
-        self.lastImageView.sd_setImage(with: URL.init(string: (self.urlImageArray?[self.getLastImageIndex(indexOfCurrentImage:indexOfCurrentImage)])!))
+        
+        self.currentImageView.kf.setImage(with: URL.init(string: (self.urlImageArray?[indexOfCurrentImage])!))
+        self.nextImageView.kf.setImage(with: URL.init(string: (self.urlImageArray?[self.getNextImageIndex(indexOfCurrentImage: indexOfCurrentImage)])!))
+        self.lastImageView.kf.setImage(with: URL.init(string: (self.urlImageArray?[self.getLastImageIndex(indexOfCurrentImage:indexOfCurrentImage)])!))
 
 //        self.currentImageView.image = self.imageArray[self.indexOfCurrentImage]
 //        self.nextImageView.image = self.imageArray[self.getNextImageIndex(indexOfCurrentImage: self.indexOfCurrentImage)]

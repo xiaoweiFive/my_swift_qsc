@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 
 class QSCHomeModel: NSObject {
+    
     var area: String?
     var margin_bottom: String?
     var header: QSCHomeHeader?
@@ -32,6 +33,8 @@ class QSCHomeModel: NSObject {
         self.list = list
     }
 }
+
+
 
 class QSCHomeHeader: NSObject {
     var title: String?

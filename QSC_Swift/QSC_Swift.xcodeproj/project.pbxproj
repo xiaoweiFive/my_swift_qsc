@@ -42,6 +42,21 @@
 		17E2D14C1EAA0D87001CB966 /* QSCHomeCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17E2D14A1EAA0D87001CB966 /* QSCHomeCategoryTableViewCell.xib */; };
 		17E2D14F1EAA1061001CB966 /* QSCHomeCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E2D14D1EAA1061001CB966 /* QSCHomeCategoryCollectionViewCell.swift */; };
 		17E2D1501EAA1061001CB966 /* QSCHomeCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17E2D14E1EAA1061001CB966 /* QSCHomeCategoryCollectionViewCell.xib */; };
+		17E734131EAD9ED100F45BEA /* QSC_MJRefreshGifTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E734121EAD9ED100F45BEA /* QSC_MJRefreshGifTool.swift */; };
+		17E734161EADAD0C00F45BEA /* QSCHomeInsuranceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E734141EADAD0C00F45BEA /* QSCHomeInsuranceTableViewCell.swift */; };
+		17E734171EADAD0C00F45BEA /* QSCHomeInsuranceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17E734151EADAD0C00F45BEA /* QSCHomeInsuranceTableViewCell.xib */; };
+		17E7341A1EADAD2100F45BEA /* QSCHomeInsuranceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E734181EADAD2100F45BEA /* QSCHomeInsuranceCollectionViewCell.swift */; };
+		17E7341B1EADAD2100F45BEA /* QSCHomeInsuranceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17E734191EADAD2100F45BEA /* QSCHomeInsuranceCollectionViewCell.xib */; };
+		17E7341E1EADC89700F45BEA /* QSCHomeFooterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E7341C1EADC89700F45BEA /* QSCHomeFooterTableViewCell.swift */; };
+		17E7341F1EADC89700F45BEA /* QSCHomeFooterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17E7341D1EADC89700F45BEA /* QSCHomeFooterTableViewCell.xib */; };
+		17E734221EADCF6E00F45BEA /* QSCHomeRecommendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E734201EADCF6E00F45BEA /* QSCHomeRecommendTableViewCell.swift */; };
+		17E734231EADCF6E00F45BEA /* QSCHomeRecommendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17E734211EADCF6E00F45BEA /* QSCHomeRecommendTableViewCell.xib */; };
+		17E734261EADD2FA00F45BEA /* QSCHomeRecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E734241EADD2FA00F45BEA /* QSCHomeRecommendCollectionViewCell.swift */; };
+		17E734271EADD2FA00F45BEA /* QSCHomeRecommendCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17E734251EADD2FA00F45BEA /* QSCHomeRecommendCollectionViewCell.xib */; };
+		17E7342A1EADDB3400F45BEA /* QSCHomeNavTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E734281EADDB3400F45BEA /* QSCHomeNavTableViewCell.swift */; };
+		17E7342B1EADDB3400F45BEA /* QSCHomeNavTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17E734291EADDB3400F45BEA /* QSCHomeNavTableViewCell.xib */; };
+		17E7342E1EADDBED00F45BEA /* QSCHomeNavCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E7342C1EADDBED00F45BEA /* QSCHomeNavCollectionViewCell.swift */; };
+		17E7342F1EADDBED00F45BEA /* QSCHomeNavCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17E7342D1EADDBED00F45BEA /* QSCHomeNavCollectionViewCell.xib */; };
 		29AA89FC368134D9A96315D5 /* Pods_QSC_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7BC85892ACF51609069296 /* Pods_QSC_Swift.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +120,21 @@
 		17E2D14A1EAA0D87001CB966 /* QSCHomeCategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSCHomeCategoryTableViewCell.xib; sourceTree = "<group>"; };
 		17E2D14D1EAA1061001CB966 /* QSCHomeCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSCHomeCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		17E2D14E1EAA1061001CB966 /* QSCHomeCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSCHomeCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		17E734121EAD9ED100F45BEA /* QSC_MJRefreshGifTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSC_MJRefreshGifTool.swift; sourceTree = "<group>"; };
+		17E734141EADAD0C00F45BEA /* QSCHomeInsuranceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSCHomeInsuranceTableViewCell.swift; sourceTree = "<group>"; };
+		17E734151EADAD0C00F45BEA /* QSCHomeInsuranceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSCHomeInsuranceTableViewCell.xib; sourceTree = "<group>"; };
+		17E734181EADAD2100F45BEA /* QSCHomeInsuranceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSCHomeInsuranceCollectionViewCell.swift; sourceTree = "<group>"; };
+		17E734191EADAD2100F45BEA /* QSCHomeInsuranceCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSCHomeInsuranceCollectionViewCell.xib; sourceTree = "<group>"; };
+		17E7341C1EADC89700F45BEA /* QSCHomeFooterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSCHomeFooterTableViewCell.swift; sourceTree = "<group>"; };
+		17E7341D1EADC89700F45BEA /* QSCHomeFooterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSCHomeFooterTableViewCell.xib; sourceTree = "<group>"; };
+		17E734201EADCF6E00F45BEA /* QSCHomeRecommendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSCHomeRecommendTableViewCell.swift; sourceTree = "<group>"; };
+		17E734211EADCF6E00F45BEA /* QSCHomeRecommendTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSCHomeRecommendTableViewCell.xib; sourceTree = "<group>"; };
+		17E734241EADD2FA00F45BEA /* QSCHomeRecommendCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSCHomeRecommendCollectionViewCell.swift; sourceTree = "<group>"; };
+		17E734251EADD2FA00F45BEA /* QSCHomeRecommendCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSCHomeRecommendCollectionViewCell.xib; sourceTree = "<group>"; };
+		17E734281EADDB3400F45BEA /* QSCHomeNavTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSCHomeNavTableViewCell.swift; sourceTree = "<group>"; };
+		17E734291EADDB3400F45BEA /* QSCHomeNavTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSCHomeNavTableViewCell.xib; sourceTree = "<group>"; };
+		17E7342C1EADDBED00F45BEA /* QSCHomeNavCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSCHomeNavCollectionViewCell.swift; sourceTree = "<group>"; };
+		17E7342D1EADDBED00F45BEA /* QSCHomeNavCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSCHomeNavCollectionViewCell.xib; sourceTree = "<group>"; };
 		1AB93AFADEC659FED697EB9C /* Pods-QSC_Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QSC_Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QSC_Swift/Pods-QSC_Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		5A7BC85892ACF51609069296 /* Pods_QSC_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QSC_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B2A9C629EBE04D3FDDA0B73 /* Pods-QSC_Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QSC_Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-QSC_Swift/Pods-QSC_Swift.release.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +204,7 @@
 				17983E261EA9AC3800D5BAC5 /* ZZWHttpTool.swift */,
 				170D75FB1EA89AD80086DC7E /* QSCAccountTool.swift */,
 				170D75FD1EA89AEE0086DC7E /* QSCAccount.swift */,
+				17E734121EAD9ED100F45BEA /* QSC_MJRefreshGifTool.swift */,
 				170D75F41EA899C00086DC7E /* config_swift.swift */,
 				17983E281EA9B16C00D5BAC5 /* QSC-Bridging-Header.h */,
 				170D75B51EA8994B0086DC7E /* Main.storyboard */,
@@ -222,10 +253,24 @@
 				17983E291EA9B8CD00D5BAC5 /* Model */,
 				17983E221EA9ABDA00D5BAC5 /* ZZWHomeBannerTableViewCell.swift */,
 				17983E231EA9ABDA00D5BAC5 /* ZZWHomeBannerTableViewCell.xib */,
+				17E7341C1EADC89700F45BEA /* QSCHomeFooterTableViewCell.swift */,
+				17E7341D1EADC89700F45BEA /* QSCHomeFooterTableViewCell.xib */,
 				17E2D1491EAA0D87001CB966 /* QSCHomeCategoryTableViewCell.swift */,
 				17E2D14A1EAA0D87001CB966 /* QSCHomeCategoryTableViewCell.xib */,
 				17E2D14D1EAA1061001CB966 /* QSCHomeCategoryCollectionViewCell.swift */,
 				17E2D14E1EAA1061001CB966 /* QSCHomeCategoryCollectionViewCell.xib */,
+				17E734141EADAD0C00F45BEA /* QSCHomeInsuranceTableViewCell.swift */,
+				17E734151EADAD0C00F45BEA /* QSCHomeInsuranceTableViewCell.xib */,
+				17E734181EADAD2100F45BEA /* QSCHomeInsuranceCollectionViewCell.swift */,
+				17E734191EADAD2100F45BEA /* QSCHomeInsuranceCollectionViewCell.xib */,
+				17E734201EADCF6E00F45BEA /* QSCHomeRecommendTableViewCell.swift */,
+				17E734211EADCF6E00F45BEA /* QSCHomeRecommendTableViewCell.xib */,
+				17E734241EADD2FA00F45BEA /* QSCHomeRecommendCollectionViewCell.swift */,
+				17E734251EADD2FA00F45BEA /* QSCHomeRecommendCollectionViewCell.xib */,
+				17E734281EADDB3400F45BEA /* QSCHomeNavTableViewCell.swift */,
+				17E734291EADDB3400F45BEA /* QSCHomeNavTableViewCell.xib */,
+				17E7342C1EADDBED00F45BEA /* QSCHomeNavCollectionViewCell.swift */,
+				17E7342D1EADDBED00F45BEA /* QSCHomeNavCollectionViewCell.xib */,
 				170D75F91EA89A990086DC7E /* QSCHomeNavigationViewController.swift */,
 			);
 			path = Home;
@@ -379,12 +424,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				17983E211EA9AADE00D5BAC5 /* first.jpg in Resources */,
+				17E7341F1EADC89700F45BEA /* QSCHomeFooterTableViewCell.xib in Resources */,
 				170D76001EA89B810086DC7E /* Images.xcassets in Resources */,
+				17E7342B1EADDB3400F45BEA /* QSCHomeNavTableViewCell.xib in Resources */,
 				17983E251EA9ABDA00D5BAC5 /* ZZWHomeBannerTableViewCell.xib in Resources */,
 				170D75BC1EA8994B0086DC7E /* LaunchScreen.storyboard in Resources */,
 				17E2D14C1EAA0D87001CB966 /* QSCHomeCategoryTableViewCell.xib in Resources */,
 				170D75B71EA8994B0086DC7E /* Main.storyboard in Resources */,
 				17983E1F1EA9AADE00D5BAC5 /* third.jpg in Resources */,
+				17E734171EADAD0C00F45BEA /* QSCHomeInsuranceTableViewCell.xib in Resources */,
+				17E7342F1EADDBED00F45BEA /* QSCHomeNavCollectionViewCell.xib in Resources */,
+				17E734231EADCF6E00F45BEA /* QSCHomeRecommendTableViewCell.xib in Resources */,
+				17E734271EADD2FA00F45BEA /* QSCHomeRecommendCollectionViewCell.xib in Resources */,
+				17E7341B1EADAD2100F45BEA /* QSCHomeInsuranceCollectionViewCell.xib in Resources */,
 				17E2D1501EAA1061001CB966 /* QSCHomeCategoryCollectionViewCell.xib in Resources */,
 				17983E201EA9AADE00D5BAC5 /* second.jpg in Resources */,
 			);
@@ -434,7 +486,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C22AA44EFED2CC1FEC2E5C93 /* [CP] Embed Pods Frameworks */ = {
@@ -459,15 +511,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17E7342A1EADDB3400F45BEA /* QSCHomeNavTableViewCell.swift in Sources */,
+				17E7341E1EADC89700F45BEA /* QSCHomeFooterTableViewCell.swift in Sources */,
 				170D75EF1EA8998E0086DC7E /* UIBarButtonItem+Extension.swift in Sources */,
 				170D75E31EA899650086DC7E /* QSCMainTabBarController.swift in Sources */,
+				17E7342E1EADDBED00F45BEA /* QSCHomeNavCollectionViewCell.swift in Sources */,
 				170D75B41EA8994B0086DC7E /* ViewController.swift in Sources */,
 				17E2D1481EAA0422001CB966 /* Int+Extension.swift in Sources */,
 				170D75FC1EA89AD80086DC7E /* QSCAccountTool.swift in Sources */,
 				17983E271EA9AC3800D5BAC5 /* ZZWHttpTool.swift in Sources */,
+				17E7341A1EADAD2100F45BEA /* QSCHomeInsuranceCollectionViewCell.swift in Sources */,
 				170D75EE1EA8998E0086DC7E /* NSString+Extension.swift in Sources */,
 				170D75E21EA899650086DC7E /* QSCBarButton.swift in Sources */,
 				170D75F71EA89A680086DC7E /* QSCNavigationViewController.swift in Sources */,
+				17E734161EADAD0C00F45BEA /* QSCHomeInsuranceTableViewCell.swift in Sources */,
 				17983E1B1EA9AA3900D5BAC5 /* CirCleView.swift in Sources */,
 				17983E241EA9ABDA00D5BAC5 /* ZZWHomeBannerTableViewCell.swift in Sources */,
 				17E2D14F1EAA1061001CB966 /* QSCHomeCategoryCollectionViewCell.swift in Sources */,
@@ -475,12 +532,15 @@
 				170D75F31EA8998E0086DC7E /* UIView+Extension.swift in Sources */,
 				170D75B21EA8994B0086DC7E /* AppDelegate.swift in Sources */,
 				170D75FA1EA89A990086DC7E /* QSCHomeNavigationViewController.swift in Sources */,
+				17E734221EADCF6E00F45BEA /* QSCHomeRecommendTableViewCell.swift in Sources */,
 				170D75E41EA899650086DC7E /* QSCTabBar.swift in Sources */,
 				17983E2B1EA9B8E100D5BAC5 /* QSCHomeModel.swift in Sources */,
 				170D75F21EA8998E0086DC7E /* UIImage+Extension.swift in Sources */,
 				170D75F11EA8998E0086DC7E /* UIColor+Extension.swift in Sources */,
 				170D75F51EA899C00086DC7E /* config_swift.swift in Sources */,
+				17E734131EAD9ED100F45BEA /* QSC_MJRefreshGifTool.swift in Sources */,
 				17E2D14B1EAA0D87001CB966 /* QSCHomeCategoryTableViewCell.swift in Sources */,
+				17E734261EADD2FA00F45BEA /* QSCHomeRecommendCollectionViewCell.swift in Sources */,
 				170D75FE1EA89AEE0086DC7E /* QSCAccount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

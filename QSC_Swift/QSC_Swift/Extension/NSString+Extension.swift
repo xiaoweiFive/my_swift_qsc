@@ -18,6 +18,7 @@ extension String {
         let rect:CGRect = self.boundingRect(with: size, options: option, attributes: attributes, context: nil)
         return rect.size;
     }
+    
     func getTextRectSize(text:NSString,font:UIFont,size:CGSize) -> CGRect {
         let attributes = [NSFontAttributeName: font]
         let option = NSStringDrawingOptions.usesLineFragmentOrigin
@@ -27,12 +28,12 @@ extension String {
         
     }
     
-    func StringToFloat(str:String)->(CGFloat){
+   static func StringToFloat(str:String)->(CGFloat){
         
         let string = str
         var cgFloat: CGFloat = 0
         
-        
+    
         if let doubleValue = Double(string)
         {
             cgFloat = CGFloat(doubleValue)
@@ -40,7 +41,7 @@ extension String {
         return cgFloat
     }
     
-    func stringToInt(str:String)->(Int){
+   static func stringToInt(str:String)->(Int){
         
         let string = str
         var int: Int?

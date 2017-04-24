@@ -13,6 +13,8 @@ pod 'MJRefresh'
 pod 'MBProgressHUD', '~> 1.0.0'
 pod 'MJExtension'
 pod 'SDWebImage'
+pod 'Kingfisher'
+
 
   # pod 'ShareSDK3'
   # pod 'MOBFoundation'

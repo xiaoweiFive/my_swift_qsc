@@ -18,7 +18,9 @@ class QSCHomeCategoryCollectionViewCell: UICollectionViewCell {
     var desc:QSCHomeListDesc?{
         
         didSet{
-            self.imageView.sd_setImage(with: URL.init(string: (desc?.image!)!), placeholderImage: UIImage.init(named: "Homenav_cattegory"), options: .retryFailed)
+            
+            self.imageView.kf.setImage(with: URL.init(string: (desc?.image)!), placeholder: UIImage.init(named: "Homenav_cattegory"), options: nil, progressBlock: nil, completionHandler: nil)
+            
             self.nameLbl.text = desc?.name
         }
     }

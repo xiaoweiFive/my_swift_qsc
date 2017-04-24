@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="QSCHomeInsuranceCollectionViewCell" customModule="QSC_Swift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="147" height="114"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="147" height="114"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GHO-N0-5bF">
+                        <rect key="frame" x="10" y="10" width="137" height="94"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="GHO-N0-5bF" secondAttribute="trailing" id="DB1-eI-5dl"/>
+                <constraint firstAttribute="bottom" secondItem="GHO-N0-5bF" secondAttribute="bottom" constant="10" id="P2a-65-yfM"/>
+                <constraint firstItem="GHO-N0-5bF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="huf-24-KTA"/>
+                <constraint firstItem="GHO-N0-5bF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="wl0-y5-nlL"/>
+            </constraints>
+            <size key="customSize" width="147" height="114"/>
+            <connections>
+                <outlet property="imageView" destination="GHO-N0-5bF" id="pmo-6c-M2b"/>
+            </connections>
+            <point key="canvasLocation" x="-65.5" y="107"/>
+        </collectionViewCell>
+    </objects>
+</document>

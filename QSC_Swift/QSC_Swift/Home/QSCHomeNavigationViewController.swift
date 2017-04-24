@@ -28,63 +28,25 @@ class QSCHomeNavigationViewController: UIViewController{
         super.viewDidLoad()
         
         self.automaticallyAdjustsScrollViewInsets = false
+        
+        QSC_MJRefreshGifTool.MJRefreshGifCustomBlock(tableView:tableView) { 
+            sleep(2)
+            self.requestData()
+            print("010010101010010101010101001010")
+        }
         self.view.addSubview(tableView)
 
-        //下拉过程时的图片集合(根据下拉距离自动改变)
-        var idleImages = [UIImage]()
-        for i in 1...2 {
-            idleImages.append(UIImage(named:"load_\(i)")!)
-        }
-        
-        for i in 1...10 {
-            self.objectArr.append("\(i)")
-        }
-        
-        // 设置普通状态的动画图片
-      for i in 1...10 {
-        let image:UIImage = UIImage(named: "load_\(i)")! as UIImage
-        idleImages.append(image)
-        }
-
-        let header:MJRefreshGifHeader = MJRefreshGifHeader.init {
-            
-            sleep(2)
-           
-            //结束刷新
-            self.tableView.mj_header.endRefreshing()
-        }
-        //设置普通状态动画图片
-        header.setImages(idleImages as [AnyObject], for: MJRefreshState.idle)
-        //设置下拉操作时动画图片
-//        header.setImages(idleImages as [AnyObject], for: MJRefreshState.pulling)
-        //设置正在刷新时动画图片
-        header.setImages(idleImages as [AnyObject], for: MJRefreshState.refreshing)
-        
-        header.lastUpdatedTimeLabel.isHidden = true
-//        header.stateLabel.isHidden = true
-        header.setTitle("1111", for: MJRefreshState.idle)
-        header.setTitle("", for: MJRefreshState.pulling)
-        header.setTitle("333333333", for: MJRefreshState.refreshing)
-        
-        self.tableView.mj_header = header
-        
         
         self.circleView = CirCleView(frame: CGRect(x: 0, y: -0.5, width: self.view.frame.size.width, height: 160*RATE))
         circleView.delegate = self
         self.view.addSubview(circleView)
-        //创建一个重用的单元格
-        self.tableView.register(UINib(nibName:"QSCHomeCategoryTableViewCell", bundle:nil), forCellReuseIdentifier:homeCategoryCellID)
-        
     }
-
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
-
         self.requestData()
     }
-    
     
     lazy var tableView:UITableView = {
         
@@ -111,7 +73,6 @@ class QSCHomeNavigationViewController: UIViewController{
         ZZWHttpTools.share.getWithPath(path: "http://index.qschou.com/v2.1.1/home", parameters: nil, success: { (json) in
             
             print(json)
-            
             if(self.indexModelArray.count > 0){
                 self.indexModelArray.removeAllObjects()
             }
@@ -122,6 +83,7 @@ class QSCHomeNavigationViewController: UIViewController{
                 
                 if topic.area == "banner" {
                     let header = topic.list
+                    self.bannerImageArray.removeAll()
                     self.bannerModel = header
                     for desc in header{
                         self.bannerImageArray.append(desc.image!)
@@ -131,8 +93,12 @@ class QSCHomeNavigationViewController: UIViewController{
             }
             
             self.tableView.reloadData()
+            self.tableView.mj_header.endRefreshing()
+
         }) { (error) in
             print(error)
+            self.tableView.mj_header.endRefreshing()
+
         }
     }
 
@@ -147,6 +113,32 @@ extension QSCHomeNavigationViewController:CirCleViewDelegate{
     }
     
 }
+
+extension QSCHomeNavigationViewController:UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if !scrollView.isKind(of: UITableView.self) {
+            return
+        }
+        
+        let offsetY = scrollView.contentOffset.y
+        
+        
+//        if offsetY < 0 {
+//            UIApplication.shared.statusBarStyle = .lightContent
+//        }else  {
+//            UIApplication.shared.statusBarStyle = .default
+//        }
+        
+        if offsetY > -TYPE_BANNER_HEIGHT {
+            self.circleView.y = -TYPE_BANNER_HEIGHT - offsetY
+            
+        }else if offsetY < -TYPE_BANNER_HEIGHT {
+            self.circleView.y = 0
+        }
+    }
+    
+}
+
 
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
@@ -164,14 +156,28 @@ extension QSCHomeNavigationViewController:UITableViewDelegate,UITableViewDataSou
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         let homeNavModel = self.indexModelArray[indexPath.section] as! QSCHomeModel
+        
+        let margin_height = String.StringToFloat(str: homeNavModel.margin_bottom!)
+        
+        if (indexPath.row == 1 && homeNavModel.area != "recommend-love-project"){
+            return margin_height
+        }
+        
         if homeNavModel.area == "nav" {
             return 100
         }
         if homeNavModel.area == "banner" {
             return 0;
         }
-
-        
+        if homeNavModel.area == "insurance" {
+            return 135;
+        }
+        if homeNavModel.area == "recommend" || homeNavModel.area == "sale-recommend" || homeNavModel.area == "love-recommend" || homeNavModel.area == "dream-recommend"  {
+            return 207;
+        }
+        else if homeNavModel.area == "sale-nav" || homeNavModel.area == "dream-nav" {
+            return 90
+        }
         return 44
     }
     
@@ -195,20 +201,47 @@ extension QSCHomeNavigationViewController:UITableViewDelegate,UITableViewDataSou
         let homeNavModel = self.indexModelArray[indexPath.section] as! QSCHomeModel
         
         if indexPath.row == 0 && homeNavModel.area != "recommend-project" && indexPath.section>0 {
-            
             if homeNavModel.area == "nav" {
-                
-                let cell =  tableView.dequeueReusableCell(withIdentifier: homeCategoryCellID) as! QSCHomeCategoryTableViewCell
-                cell.selectionStyle = .none
+                let cell =  QSCHomeCategoryTableViewCell.cellWithTableView(tableView: tableView)
                 cell.homeNavModel = homeNavModel
-                cell.updateStyle()
                 return cell
-            }else if homeNavModel.area == "banner" {
+            
+            }else if homeNavModel.area == "sale-nav" || homeNavModel.area == "dream-nav" {
+                let cell =  QSCHomeNavTableViewCell.cellWithTableView(tableView: tableView)
+                cell.homeNavModel = homeNavModel
+                return cell
+            }else if homeNavModel.area == "insurance" {
+                let cell =  QSCHomeInsuranceTableViewCell.cellWithTableView(tableView: tableView)
+                cell.homeNavModel = homeNavModel
+                return cell
+            }else if homeNavModel.area == "recommend" || homeNavModel.area == "dream-recommend" || homeNavModel.area == "sale-recommend" || homeNavModel.area == "love-recommend" {
+                let cell =  QSCHomeRecommendTableViewCell.cellWithTableView(tableView: tableView)
+                cell.homeNavModel = homeNavModel
+                return cell
+            }
+                
+                
+            else if homeNavModel.area == "banner" {
                 return UITableViewCell()
                 
             }
+        }else if (indexPath.row == 1 && homeNavModel.area != "recommend-love-project"){
             
+            let heigh = String.StringToFloat(str: homeNavModel.margin_bottom!)
+            let footerView =  QSCHomeFooterTableViewCell.cellWithTableView(tableView: tableView)
+            if heigh == 1 {
+                footerView.contentView.backgroundColor = UIColor.white
+                footerView.backView.backgroundColor = zzwColor(red: 229, green: 229, blue: 229, alpha: 1)
+            }else{
+                footerView.backView.backgroundColor = ZZWGrayColor
+                footerView.contentView.backgroundColor = ZZWGrayColor
+            }
+            return footerView
         }
+        
+        
+        
+        
         
         let identifier="identtifier";
         var cell=tableView.dequeueReusableCell(withIdentifier: identifier)
