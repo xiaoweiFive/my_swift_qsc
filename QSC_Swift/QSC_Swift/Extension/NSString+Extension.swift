@@ -28,6 +28,20 @@ extension String {
         
     }
     
+    
+    //根据开始位置和长度截取字符串
+    func subString(start:Int, length:Int = -1)->String {
+        var len = length
+        if len == -1 {
+            len = characters.count - start
+        }
+        let st = characters.index(startIndex, offsetBy:start)
+        let en = characters.index(st, offsetBy:len)
+        let range = st ..< en
+        
+        return substring(with:range)
+    }
+    
    static func StringToFloat(str:String)->(CGFloat){
         
         let string = str

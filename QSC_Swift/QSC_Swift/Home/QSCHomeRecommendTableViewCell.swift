@@ -43,6 +43,20 @@ class QSCHomeRecommendTableViewCell: UITableViewCell {
             self.nameLbl.text = homeNavModel?.header?.title
             self.moreBtn.setTitle(homeNavModel?.header?.more?.title, for: .normal)
             
+            //临时方法
+//            self.KKcollectionView.delegate = self;
+            let maxImageW = SCREEN_WIDTH*0.44
+            let W = maxImageW * CGFloat((self.homeNavModel?.list.count)!) + 10;
+            let H = COLLECTIONVIEW_HEIGHT - 61*RATE;
+//            self.headerConsH.constant = 46*RATE;
+            
+            self.KKcollectionView.addFooterRefreshContentSize(W: W, H: H)
+          
+            self.KKcollectionView.didRefreshBlock =  { () in
+                
+                print("didRefreshBlock-----didRefreshBlock------didRefreshBlock------didRefreshBlock")
+            }
+            
             self.KKcollectionView.reloadData()
         }
     }
@@ -73,6 +87,10 @@ class QSCHomeRecommendTableViewCell: UITableViewCell {
         
     }
 
+    
+    deinit {
+        self.KKcollectionView.endFooterRefresh()
+    }
 }
 
 
