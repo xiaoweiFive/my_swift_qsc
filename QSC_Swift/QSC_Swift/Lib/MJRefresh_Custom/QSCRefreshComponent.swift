@@ -65,7 +65,7 @@ class QSCRefreshComponent: UIView {
     
     var scrollViewOriginalInset:UIEdgeInsets?
     var scrollView:UIScrollView?
-    
+    var refreshingBlock:QSCRefreshComponentRefreshingBlock?
     var pan:UIPanGestureRecognizer?
 
     
@@ -169,5 +169,41 @@ class QSCRefreshComponent: UIView {
     }
     func scrollViewPanStateDidChange(change:[NSKeyValueChangeKey:Any]) {
     }
+    
+    
+    func beginRefreshing()  {
+        UIView.animate(withDuration: 0.25) { 
+            self.alpha = 1.0
+        }
+        
+        if self.window != nil {
+            self.state = QSCRefreshState.QSCRefreshStateRefreshing
+        }else{
+            // 预防正在刷新中时，调用本方法使得header inset回置失败
+            if (self.state != QSCRefreshState.QSCRefreshStateRefreshing) {
+                self.state = QSCRefreshState.QSCRefreshStateWillRefresh;
+                // 刷新(预防从另一个控制器回到这个控制器的情况，回来要重新刷新一下)
+                self.setNeedsDisplay()
+            }
+        }
+        
+    }
+    
+    
+    func endRefresing()  {
+        self.state = QSCRefreshState.QSCRefreshStateIdle
+    }
+    
+    
+    func isRefreshing() -> Bool {
+        if self.state == QSCRefreshState.QSCRefreshStateRefreshing  ||  self.state == QSCRefreshState.QSCRefreshStateWillRefresh{
+            return true
+        }
+        return false
+    }
+    
+    
+    
+    
     
 }
