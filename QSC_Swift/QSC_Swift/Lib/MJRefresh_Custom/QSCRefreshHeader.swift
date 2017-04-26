@@ -33,12 +33,15 @@ class QSCRefreshHeader: QSCRefreshComponent {
         self.height = QSCRefreshHeaderHeight
     }
     
-    
-    override func placeSubviwes() {
-        super.placeSubviwes()
-        self.y = -self.height - self.ignoredScrollViewContentInsetTop!
+    override func placeMySubviwes() {
+        super.placeMySubviwes()
+        
+        
+//        self.y  =  -self.height - self.ignoredScrollViewContentInsetTop!
     }
     
+    
+
     
     override func scrollViewContentOffsetDidChange(change: [NSKeyValueChangeKey : Any]) {
         super.scrollViewContentSizeDidChange(change: change)
@@ -56,6 +59,8 @@ class QSCRefreshHeader: QSCRefreshComponent {
         
         scrollViewOriginalInset = self.scrollView?.contentInset
         let offsetY = self.scrollView?.contentOffset.y
+        print("----------\(offsetY)")
+        
         let happenOffsetY = (0-(scrollViewOriginalInset?.top)!)
         
         if (offsetY! > happenOffsetY) {
@@ -80,18 +85,18 @@ class QSCRefreshHeader: QSCRefreshComponent {
     }
     
     override var state: QSCRefreshState?{
-        didSet {
+        didSet(newValue) {
             if state == QSCRefreshState.QSCRefreshStateIdle {
-                if state != QSCRefreshState.QSCRefreshStateRefreshing {
+                if newValue != QSCRefreshState.QSCRefreshStateRefreshing {
                     return
                 }
                 
-               UIView.animate(withDuration: 0.4, animations: { 
-                self.scrollView?.contentInset.top += self.insetTDelta!
-               }, completion: { (finish) in
-                self.myendRefreshingCompletionBlock?()
-               })
-
+                UIView.animate(withDuration: 0.4, animations: {
+                    self.scrollView?.contentInset.top += self.insetTDelta!
+                }, completion: { (finish) in
+                    self.myendRefreshingCompletionBlock?()
+                })
+                
             }else if (state == QSCRefreshState.QSCRefreshStateRefreshing){
                 DispatchQueue.main.async(execute: { 
                     UIView.animate(withDuration: 0.25, animations: { 

@@ -98,11 +98,11 @@ class QSCRefreshComponent: UIView {
     }
     
     override func layoutSubviews() {
-        self.placeSubviwes()
+        self.placeMySubviwes()
         super.layoutSubviews()
     }
     
-    func placeSubviwes() {
+    func placeMySubviwes() {
         
     }
     
@@ -195,6 +195,8 @@ class QSCRefreshComponent: UIView {
     
     
     func endRefresing()  {
+        
+        
         self.state = QSCRefreshState.QSCRefreshStateIdle
     }
     
