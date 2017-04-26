@@ -34,14 +34,15 @@ extension UIScrollView{
     
     ///  推荐写法
     var QSC_header: QSCRefreshHeader? {
-        set {
-            if newValue != QSC_header {
+        set (newValue){
+            if newValue != self.QSC_header {
                 self.QSC_header?.removeFromSuperview()
             }
             
+            self.insertSubview(newValue!, at: 0)
             let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "QSC_header".hashValue)
             self.willChangeValue(forKey: "QSC_header")
-            objc_setAssociatedObject(self, key, newValue, .OBJC_ASSOCIATION_ASSIGN)
+            objc_setAssociatedObject(self, key, newValue, .OBJC_ASSOCIATION_RETAIN)
             self.didChangeValue(forKey: "QSC_header")
         }
         

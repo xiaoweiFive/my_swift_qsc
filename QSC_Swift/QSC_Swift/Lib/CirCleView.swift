@@ -129,9 +129,7 @@ class CirCleView: UIView, UIScrollViewDelegate {
         nextImageView.clipsToBounds = true
         contentScrollView.addSubview(nextImageView)
         
-        if (self.imageArray != nil) {
-            self.setScrollViewOfImage()
-        }
+  
         contentScrollView.setContentOffset(CGPoint(x: self.frame.size.width, y: 0), animated: false)
         
         //设置计时器
@@ -158,10 +156,15 @@ class CirCleView: UIView, UIScrollViewDelegate {
 //            imageIndex = 0
 //        }
         
+        if (self.urlImageArray != nil) && (self.urlImageArray?.count)!>0{
+            self.currentImageView.kf.setImage(with: URL.init(string: (self.urlImageArray?[indexOfCurrentImage])!))
+            
+//            self.currentImageView.kf.setImage(with: URL.init(string: (self.urlImageArray?[indexOfCurrentImage])!), placeholder: UIImage.init(named: <#T##String#>), options: nil, progressBlock: nil, completionHandler: nil)
+            
+            self.nextImageView.kf.setImage(with: URL.init(string: (self.urlImageArray?[self.getNextImageIndex(indexOfCurrentImage: indexOfCurrentImage)])!))
+            self.lastImageView.kf.setImage(with: URL.init(string: (self.urlImageArray?[self.getLastImageIndex(indexOfCurrentImage:indexOfCurrentImage)])!))
+        }
         
-        self.currentImageView.kf.setImage(with: URL.init(string: (self.urlImageArray?[indexOfCurrentImage])!))
-        self.nextImageView.kf.setImage(with: URL.init(string: (self.urlImageArray?[self.getNextImageIndex(indexOfCurrentImage: indexOfCurrentImage)])!))
-        self.lastImageView.kf.setImage(with: URL.init(string: (self.urlImageArray?[self.getLastImageIndex(indexOfCurrentImage:indexOfCurrentImage)])!))
 
 //        self.currentImageView.image = self.imageArray[self.indexOfCurrentImage]
 //        self.nextImageView.image = self.imageArray[self.getNextImageIndex(indexOfCurrentImage: self.indexOfCurrentImage)]
@@ -187,7 +190,7 @@ class CirCleView: UIView, UIScrollViewDelegate {
     
     //事件触发方法
     func timerAction() {
-        print("timer", terminator: "")
+//        print("timer", terminator: "")
         contentScrollView.setContentOffset(CGPoint(x: self.frame.size.width*2, y: 0), animated: true)
     }
 
@@ -233,7 +236,6 @@ class CirCleView: UIView, UIScrollViewDelegate {
                 
                 self.indexOfCurrentImage = self.getNextImageIndex(indexOfCurrentImage: 0)
             }
-            
         }
         // 重新布局图片
         self.setScrollViewOfImage()
@@ -248,7 +250,7 @@ class CirCleView: UIView, UIScrollViewDelegate {
     
     //时间触发器 设置滑动时动画true，会触发的方法
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        print("animator", terminator: "")
+//        print("animator", terminator: "")
         self.scrollViewDidEndDecelerating(contentScrollView)
     }
 

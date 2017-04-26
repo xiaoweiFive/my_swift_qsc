@@ -29,12 +29,24 @@ class QSCHomeNavigationViewController: UIViewController{
         
         self.automaticallyAdjustsScrollViewInsets = false
         
-        QSC_MJRefreshGifTool.MJRefreshGifCustomBlock(tableView:tableView) { 
-            sleep(2)
-            self.requestData()
-            print("010010101010010101010101001010")
-        }
+//        QSC_MJRefreshGifTool.MJRefreshGifCustomBlock(tableView:tableView) { 
+//            sleep(2)
+        //            self.requestData()
+        //            print("010010101010010101010101001010")
+        //        }
         self.view.addSubview(tableView)
+        
+        let header =  QSCRefreshGifHeader.headerWithRefreshingBlock {
+            
+            self.requestData()
+            
+            print("909090909090909090909000900909090")
+            
+            
+        }
+        
+        
+        self.tableView.QSC_header = header;
 
         
         self.circleView = CirCleView(frame: CGRect(x: 0, y: -0.5, width: self.view.frame.size.width, height: 160*RATE))
@@ -91,13 +103,14 @@ class QSCHomeNavigationViewController: UIViewController{
                     self.circleView.urlImageArray = self.bannerImageArray
                 }
             }
-            
+            self.tableView.QSC_header?.endRefresing()
+
             self.tableView.reloadData()
-            self.tableView.mj_header.endRefreshing()
+//            self.tableView.mj_header.endRefreshing()
 
         }) { (error) in
             print(error)
-            self.tableView.mj_header.endRefreshing()
+//            self.tableView.mj_header.endRefreshing()
 
         }
     }

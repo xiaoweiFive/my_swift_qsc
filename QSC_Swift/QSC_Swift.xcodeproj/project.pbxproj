@@ -59,7 +59,6 @@
 		17E7342F1EADDBED00F45BEA /* QSCHomeNavCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17E7342D1EADDBED00F45BEA /* QSCHomeNavCollectionViewCell.xib */; };
 		17FC5FCA1EAEEA3D0061E485 /* QSCRefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC5FC91EAEEA3D0061E485 /* QSCRefreshComponent.swift */; };
 		17FC5FCC1EAEEA560061E485 /* QSCRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC5FCB1EAEEA560061E485 /* QSCRefreshHeader.swift */; };
-		17FC5FCE1EAEEA750061E485 /* QSCRefreshStateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC5FCD1EAEEA750061E485 /* QSCRefreshStateHeader.swift */; };
 		17FC5FD01EAEEA8B0061E485 /* QSCRefreshGifHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC5FCF1EAEEA8B0061E485 /* QSCRefreshGifHeader.swift */; };
 		17FC5FD21EAEF0190061E485 /* UIScrollView+QSCRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC5FD11EAEF0190061E485 /* UIScrollView+QSCRefresh.swift */; };
 		17FC5FD41EAF02A90061E485 /* DispatchQueue+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC5FD31EAF02A90061E485 /* DispatchQueue+extension.swift */; };
@@ -146,7 +145,6 @@
 		17E7342D1EADDBED00F45BEA /* QSCHomeNavCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QSCHomeNavCollectionViewCell.xib; sourceTree = "<group>"; };
 		17FC5FC91EAEEA3D0061E485 /* QSCRefreshComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSCRefreshComponent.swift; sourceTree = "<group>"; };
 		17FC5FCB1EAEEA560061E485 /* QSCRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSCRefreshHeader.swift; sourceTree = "<group>"; };
-		17FC5FCD1EAEEA750061E485 /* QSCRefreshStateHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSCRefreshStateHeader.swift; sourceTree = "<group>"; };
 		17FC5FCF1EAEEA8B0061E485 /* QSCRefreshGifHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSCRefreshGifHeader.swift; sourceTree = "<group>"; };
 		17FC5FD11EAEF0190061E485 /* UIScrollView+QSCRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+QSCRefresh.swift"; sourceTree = "<group>"; };
 		17FC5FD31EAF02A90061E485 /* DispatchQueue+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+extension.swift"; sourceTree = "<group>"; };
@@ -321,7 +319,6 @@
 			children = (
 				17FC5FC91EAEEA3D0061E485 /* QSCRefreshComponent.swift */,
 				17FC5FCB1EAEEA560061E485 /* QSCRefreshHeader.swift */,
-				17FC5FCD1EAEEA750061E485 /* QSCRefreshStateHeader.swift */,
 				17FC5FCF1EAEEA8B0061E485 /* QSCRefreshGifHeader.swift */,
 				17FC5FD11EAEF0190061E485 /* UIScrollView+QSCRefresh.swift */,
 				17FC5FD51EAF280F0061E485 /* UIScrollView+QSCCollectionFooterMore.swift */,
@@ -573,7 +570,6 @@
 				170D75FA1EA89A990086DC7E /* QSCHomeNavigationViewController.swift in Sources */,
 				17E734221EADCF6E00F45BEA /* QSCHomeRecommendTableViewCell.swift in Sources */,
 				170D75E41EA899650086DC7E /* QSCTabBar.swift in Sources */,
-				17FC5FCE1EAEEA750061E485 /* QSCRefreshStateHeader.swift in Sources */,
 				17983E2B1EA9B8E100D5BAC5 /* QSCHomeModel.swift in Sources */,
 				170D75F21EA8998E0086DC7E /* UIImage+Extension.swift in Sources */,
 				17FC5FD81EAF2AB80061E485 /* QSCBezierView.swift in Sources */,

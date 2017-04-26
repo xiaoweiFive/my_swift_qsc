@@ -10,7 +10,7 @@ import UIKit
 
 
 let  MJRefreshLabelLeftInset:CGFloat = 25;
-let  MJRefreshHeaderHeight:CGFloat = 54.0;
+let  MJRefreshHeaderHeight:CGFloat = 65.0;
 let  MJRefreshFooterHeight:CGFloat = 44.0;
 let  MJRefreshFastAnimationDuration:CGFloat = 0.25;
 let  MJRefreshSlowAnimationDuration:CGFloat = 0.4;
@@ -66,11 +66,14 @@ class QSCRefreshComponent: UIView {
     var scrollViewOriginalInset:UIEdgeInsets?
     var scrollView:UIScrollView?
     var refreshingBlock:QSCRefreshComponentRefreshingBlock?
+    var myendRefreshingCompletionBlock:QSCRefreshComponentEndRefreshingCompletionBlock?
+    var mybeginRefreshingCompletionBlock:QSCRefreshComponentbeginRefreshingCompletionBlock?
+    
     var pan:UIPanGestureRecognizer?
 
     
-    
-    var state:QSCRefreshState? {
+    var state:QSCRefreshState?
+        {
         didSet{
             DispatchQueue.main.async {
                 self.setNeedsLayout()
@@ -78,7 +81,6 @@ class QSCRefreshComponent: UIView {
         }
     }
 
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -101,32 +103,34 @@ class QSCRefreshComponent: UIView {
     }
     
     func placeSubviwes() {
-    
+        
     }
     
-    override func willMove(toSuperview newSuperview: UIView?) {
+    
+    override open func willMove(toSuperview newSuperview: UIView?){
+
         super.willMove(toSuperview: newSuperview)
         if (newSuperview != nil) && !(newSuperview?.isKind(of: UIScrollView.self))! {
             return
         }
+        
         self.removeObservers()
         if (newSuperview != nil) {
             self.width  = (newSuperview?.width)!
             self.x = 0;
             
             // 记录UIScrollView
-           scrollView = newSuperview as? UIScrollView
+            scrollView = newSuperview as? UIScrollView
             scrollView?.alwaysBounceVertical = true
             scrollViewOriginalInset = scrollView?.contentInset
             self.addObservers()
         }
-        
     }
+    
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         if self.state == QSCRefreshState.QSCRefreshStateWillRefresh {
             self.state = QSCRefreshState.QSCRefreshStateRefreshing
-
         }
     }
     
@@ -202,7 +206,15 @@ class QSCRefreshComponent: UIView {
         return false
     }
     
-    
+    func executeRefreshingCallback()  {
+        DispatchQueue.main.async {
+            
+            print("refreshingBlockrefreshingBlockrefreshingBlockrefreshingBlockrefreshingBlock")
+            self.refreshingBlock?()
+            self.mybeginRefreshingCompletionBlock?()
+
+        }
+    }
     
     
     
