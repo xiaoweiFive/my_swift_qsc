@@ -9,10 +9,13 @@
 
 typealias DidRefresh = ()->Void
 
-
 // 监听偏移量
 let  kContentOffsetKey:String = "contentOffset";
 let  kContentSizeKey:String = "contentSize";
+
+let  QSCDidRefreshBlock = "QSC_Right_DidBlock"
+
+let  QSCRightFooterView = "QSC_Right_footerView"
 
 import Foundation
 
@@ -23,27 +26,27 @@ extension UIScrollView{
     var didRefreshBlock:DidRefresh{
         set {
             
-//            self.willChangeValue(forKey: "QSC_Right_DidBlock")
-            let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "QSC_Right_DidBlock".hashValue)
+            self.willChangeValue(forKey: QSCDidRefreshBlock)
+            let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: QSCDidRefreshBlock.hashValue)
             objc_setAssociatedObject(self, key, newValue, .OBJC_ASSOCIATION_RETAIN)
-//            self.didChangeValue(forKey: "QSC_Right_DidBlock")
+            self.didChangeValue(forKey: QSCDidRefreshBlock)
         }
         get {
-            let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "QSC_Right_DidBlock".hashValue)
+            let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: QSCDidRefreshBlock.hashValue)
             let obj = objc_getAssociatedObject(self, key) as? DidRefresh
             return obj!
         }
     }
-    ///  推荐写法
+
     var footerView: QSCBezierView? {
         set (newValue){
-            let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "QSC_Right_footerView".hashValue)
-//            self.willChangeValue(forKey: "QSC_Right_footerView")
+            let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: QSCRightFooterView.hashValue)
+            self.willChangeValue(forKey: QSCRightFooterView)
             objc_setAssociatedObject(self, key, newValue, .OBJC_ASSOCIATION_RETAIN)
-//            self.didChangeValue(forKey: "QSC_Right_footerView")
+            self.didChangeValue(forKey: QSCRightFooterView)
         }
         get {
-            let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "QSC_Right_footerView".hashValue)
+            let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: QSCRightFooterView.hashValue)
             let obj: QSCBezierView? = objc_getAssociatedObject(self, key) as? QSCBezierView
             return obj
         }
@@ -87,6 +90,7 @@ extension UIScrollView{
         }
     }
     
+   
     
     open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         

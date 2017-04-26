@@ -6,16 +6,47 @@
 //  Copyright © 2017年 QSC. All rights reserved.
 //
 
+let  QSCRefreshHeaderHeight:CGFloat = 54.0
+
+
 import UIKit
+
+
 
 class QSCRefreshHeader: QSCRefreshComponent {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    let ignoredScrollViewContentInsetTop:CGFloat? = 0
+    
+    class func headerWithRefreshingBlock(refreshingBlock:@escaping QSCRefreshComponentRefreshingBlock) ->QSCRefreshHeader{
+        let header = QSCRefreshComponent() as! QSCRefreshHeader
+        header.refreshingBlock = refreshingBlock
+        return header
     }
-    */
-
+    
+    
+    override func prepare() {
+        super.prepare()
+        self.height = QSCRefreshHeaderHeight
+    }
+    
+    
+    override func placeSubviwes() {
+        super.placeSubviwes()
+        self.y = -self.height - self.ignoredScrollViewContentInsetTop!
+    }
+    
+    override func scrollViewContentSizeDidChange(change: [NSKeyValueChangeKey : Any]) {
+        super.scrollViewContentSizeDidChange(change: change)
+        if self.state == .QSCRefreshStateRefreshing {
+            if self.window == nil { return }
+            
+ 
+        }
+        
+        
+        
+    }
+    
+    
+    
 }
