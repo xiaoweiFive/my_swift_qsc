@@ -196,7 +196,6 @@ class QSCRefreshComponent: UIView {
     
     func endRefresing()  {
         
-        
         self.state = QSCRefreshState.QSCRefreshStateIdle
     }
     
@@ -214,7 +213,7 @@ class QSCRefreshComponent: UIView {
             print("refreshingBlockrefreshingBlockrefreshingBlockrefreshingBlockrefreshingBlock")
             self.refreshingBlock?()
             self.mybeginRefreshingCompletionBlock?()
-
+            
         }
     }
     

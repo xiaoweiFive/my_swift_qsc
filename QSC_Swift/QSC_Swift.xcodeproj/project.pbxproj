@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170112841EB18F39008AD293 /* QSCRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170112831EB18F39008AD293 /* QSCRefreshFooter.swift */; };
+		170112861EB192E4008AD293 /* QSCRefreshNormalFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170112851EB192E4008AD293 /* QSCRefreshNormalFooter.swift */; };
 		170D75B21EA8994B0086DC7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D75B11EA8994B0086DC7E /* AppDelegate.swift */; };
 		170D75B41EA8994B0086DC7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170D75B31EA8994B0086DC7E /* ViewController.swift */; };
 		170D75B71EA8994B0086DC7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 170D75B51EA8994B0086DC7E /* Main.storyboard */; };
@@ -86,6 +88,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		170112831EB18F39008AD293 /* QSCRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSCRefreshFooter.swift; sourceTree = "<group>"; };
+		170112851EB192E4008AD293 /* QSCRefreshNormalFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSCRefreshNormalFooter.swift; sourceTree = "<group>"; };
 		170D75AE1EA8994B0086DC7E /* QSC_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QSC_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		170D75B11EA8994B0086DC7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		170D75B31EA8994B0086DC7E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -320,6 +324,8 @@
 				17FC5FC91EAEEA3D0061E485 /* QSCRefreshComponent.swift */,
 				17FC5FCB1EAEEA560061E485 /* QSCRefreshHeader.swift */,
 				17FC5FCF1EAEEA8B0061E485 /* QSCRefreshGifHeader.swift */,
+				170112831EB18F39008AD293 /* QSCRefreshFooter.swift */,
+				170112851EB192E4008AD293 /* QSCRefreshNormalFooter.swift */,
 				17FC5FD11EAEF0190061E485 /* UIScrollView+QSCRefresh.swift */,
 				17FC5FD51EAF280F0061E485 /* UIScrollView+QSCCollectionFooterMore.swift */,
 				17FC5FD71EAF2AB80061E485 /* QSCBezierView.swift */,
@@ -562,9 +568,11 @@
 				17FC5FDC1EAF50990061E485 /* QSCRuntimeTool.swift in Sources */,
 				17983E1B1EA9AA3900D5BAC5 /* CirCleView.swift in Sources */,
 				17FC5FD41EAF02A90061E485 /* DispatchQueue+extension.swift in Sources */,
+				170112861EB192E4008AD293 /* QSCRefreshNormalFooter.swift in Sources */,
 				17983E241EA9ABDA00D5BAC5 /* ZZWHomeBannerTableViewCell.swift in Sources */,
 				17E2D14F1EAA1061001CB966 /* QSCHomeCategoryCollectionViewCell.swift in Sources */,
 				170D75F01EA8998E0086DC7E /* UIButton+Extension.swift in Sources */,
+				170112841EB18F39008AD293 /* QSCRefreshFooter.swift in Sources */,
 				170D75F31EA8998E0086DC7E /* UIView+Extension.swift in Sources */,
 				170D75B21EA8994B0086DC7E /* AppDelegate.swift in Sources */,
 				170D75FA1EA89A990086DC7E /* QSCHomeNavigationViewController.swift in Sources */,

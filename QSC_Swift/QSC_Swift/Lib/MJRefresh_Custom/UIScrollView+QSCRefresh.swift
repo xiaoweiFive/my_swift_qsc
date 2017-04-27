@@ -6,30 +6,34 @@
 //  Copyright © 2017年 QSC. All rights reserved.
 //
 
+typealias QSCReloadDataBlock = (_ totalDataCount:NSInteger)->Void
+let  QSCAllDataCountBlock = "QSCAllDataCountBlock"
+
 import UIKit
 
 
 extension UIScrollView{
     
-    var QSC_ReloadDataBlock:(_ totalDataCount:NSInteger)->()?{
+    var QSCReloadDataBlock:QSCReloadDataBlock{
         set {
-            self.willChangeValue(forKey: "QSC_ReloadDataBlock")
-            
-            let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "QSC_RefreshReloadDataBlockKey".hashValue)
+            self.willChangeValue(forKey: QSCAllDataCountBlock)
+            let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: QSCAllDataCountBlock.hashValue)
             objc_setAssociatedObject(self, key, newValue, .OBJC_ASSOCIATION_RETAIN)
-            
-            self.didChangeValue(forKey: "QSC_ReloadDataBlock")
+            self.didChangeValue(forKey: QSCAllDataCountBlock)
         }
-        
         get {
-            let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "QSC_RefreshReloadDataBlockKey".hashValue)
-            
-            return objc_getAssociatedObject(self, key) as! (NSInteger) -> ()?
+            let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: QSCAllDataCountBlock.hashValue)
+            let obj = objc_getAssociatedObject(self, key) as? QSCReloadDataBlock
+          
+            return obj!
         }
     }
     
-    func executeReloadDataBlock() {
-            self.mj_reloadDataBlock?(self.QSC_totalDataCount())
+    func QSCExecuteReloadDataBlock() {
+        if self.QSC_header == nil &&  self.QSC_footer == nil {
+            return
+        }
+        self.QSCReloadDataBlock(self.QSC_totalDataCount())
     }
     
     ///  推荐写法
@@ -52,18 +56,37 @@ extension UIScrollView{
             return obj
         }
     }
+    ///  推荐写法
+    var QSC_footer: QSCRefreshFooter? {
+        set (newValue){
+            if newValue != self.QSC_footer {
+                self.QSC_footer?.removeFromSuperview()
+            }
+            self.insertSubview(newValue!, at: 0)
+            let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "QSC_footer".hashValue)
+            self.willChangeValue(forKey: "QSC_footer")
+            objc_setAssociatedObject(self, key, newValue, .OBJC_ASSOCIATION_RETAIN)
+            self.didChangeValue(forKey: "QSC_footer")
+        }
+        get {
+            let key: UnsafeRawPointer! = UnsafeRawPointer.init(bitPattern: "QSC_footer".hashValue)
+            let obj: QSCRefreshFooter? = objc_getAssociatedObject(self, key) as? QSCRefreshFooter
+            return obj
+        }
+    }
+    
     
     func QSC_totalDataCount() -> NSInteger {
         var totalCount:NSInteger = 0
         if self.isKind(of: UITableView.self) {
             let tableView = self as! UITableView
-            for i in 0...tableView.numberOfSections{
+            for i in 0..<tableView.numberOfSections{
                 totalCount += tableView.numberOfRows(inSection: i)
             }
         }
         else if self.isKind(of: UICollectionView.self){
             let collectionView = self as! UICollectionView
-            for i in 0...collectionView.numberOfSections{
+            for i in 0..<collectionView.numberOfSections{
                 totalCount += collectionView.numberOfItems(inSection: i)
             }
         }
@@ -81,15 +104,13 @@ extension NSObject{
 extension UITableView{
     
     open override class func initialize() {
-        
-        
         DispatchQueue.once(token: "onceTableView") {
             self.exchangeInstanceMethod(method1: #selector(reloadData), method2: #selector(QSC_reloadData))
         }
     }
     func QSC_reloadData() {
         self.QSC_reloadData()
-        self.executeReloadDataBlock()
+        self.QSCExecuteReloadDataBlock()
     }
 }
 
@@ -101,6 +122,6 @@ extension UICollectionView{
     }
     func QSC_reloadData() {
         self.QSC_reloadData()
-        self.executeReloadDataBlock()
+        self.QSCExecuteReloadDataBlock()
     }
 }

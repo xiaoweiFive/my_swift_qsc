@@ -44,6 +44,13 @@ class QSCHomeNavigationViewController: UIViewController{
             
             
         }
+        self.tableView.QSC_footer = QSCRefreshNormalFooter.footerWithRefreshingBlock {
+            
+            self.requestData()
+
+            print("000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")
+        };
+        
         
         
         self.tableView.QSC_header = header;
@@ -103,10 +110,11 @@ class QSCHomeNavigationViewController: UIViewController{
                     self.circleView.urlImageArray = self.bannerImageArray
                 }
             }
+            
             self.tableView.QSC_header?.endRefresing()
-
+            self.tableView.QSC_footer?.endRefresing()
+            
             self.tableView.reloadData()
-//            self.tableView.mj_header.endRefreshing()
 
         }) { (error) in
             print(error)

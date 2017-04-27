@@ -8,14 +8,13 @@
 
 import UIKit
 
-class QSCRefreshGifHeader: QSCRefreshHeader {    
-   
-    var imageView:UIImageView = UIImageView()
-    var stateLabel:UILabel = UILabel()
+class QSCRefreshGifHeader: QSCRefreshHeader {
+    
+    lazy var imageView:UIImageView = UIImageView()
+    lazy var stateLabel:UILabel = UILabel()
     var idleImages = [UIImage]()
     
     
-
     lazy var imageArray: [UIImage] = {
         var myImageArray = [UIImage]()
         for i in 1...12 {
@@ -24,6 +23,9 @@ class QSCRefreshGifHeader: QSCRefreshHeader {
         }
         return myImageArray
     }()
+    
+    
+    
     
     
     override var state: QSCRefreshState?{
@@ -50,7 +52,6 @@ class QSCRefreshGifHeader: QSCRefreshHeader {
     
     override func placeMySubviwes() {
         self.imageView.centerX = self.centerX;
-
         self.imageView.frame.size = CGSize(width: 80, height: 50);
         self.imageView.contentMode = .scaleToFill
         self.stateLabel.frame = CGRect(x: 0, y: self.imageView.height, width: SCREEN_WIDTH, height: 15)
@@ -58,7 +59,7 @@ class QSCRefreshGifHeader: QSCRefreshHeader {
         self.stateLabel.textAlignment = .center
         self.addSubview(self.imageView)
         self.addSubview(self.stateLabel)
+        
         self.y  =  -64
-
     }
 }

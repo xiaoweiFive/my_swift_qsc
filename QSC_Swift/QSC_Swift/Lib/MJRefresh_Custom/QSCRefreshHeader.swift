@@ -49,7 +49,7 @@ class QSCRefreshHeader: QSCRefreshComponent {
             if self.window == nil { return }
             
             // sectionheader停留解决
-            let insetT:CGFloat? = 65
+            let insetT:CGFloat? = QSCRefreshHeaderHeight
             
             self.scrollView?.contentInset.top = insetT!;
             self.insetTDelta = (scrollViewOriginalInset?.top)! - insetT!;
@@ -68,6 +68,7 @@ class QSCRefreshHeader: QSCRefreshComponent {
         }
         // 普通 和 即将刷新 的临界点
         let normal2pullingOffsetY = happenOffsetY - self.height;
+
         
         if (self.scrollView?.isDragging)! { // 如果正在拖拽
             if (self.state == QSCRefreshState.QSCRefreshStateIdle && (offsetY! < normal2pullingOffsetY)) {
