@@ -28,6 +28,11 @@ class QSCRefreshFooter: QSCRefreshComponent {
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         if newSuperview != nil {
+            if !self.isHidden {
+                self.scrollView?.contentInset.bottom += self.height
+            }
+            self.y = self.scrollView?.contentSize.height;
+
             
             if (self.scrollView?.isKind(of: UITableView.self))! || (self.scrollView?.isKind(of: UICollectionView.self))!  {
                 
@@ -42,7 +47,7 @@ class QSCRefreshFooter: QSCRefreshComponent {
                 }
                 
             }else{
-                if self.isHidden {
+                if !self.isHidden {
                     self.scrollView?.contentInset.bottom -= self.height
                 }
             }
@@ -59,21 +64,18 @@ class QSCRefreshFooter: QSCRefreshComponent {
         self.state = .QSCRefreshStateIdle
     }
 
-//    override var isHidden: Bool{
-//        
-//        willSet{
-//            let lastHidden = self.isHidden
-//            if !lastHidden && newValue {
-//                self.state = QSCRefreshState.QSCRefreshStateIdle
-//                self.scrollView?.contentInset.bottom -= self.height
-//            }else if(lastHidden && !newValue){
-//                self.scrollView?.contentInset.bottom += self.height
-//                self.y = (scrollView?.contentSize.height)!
-//                
-//            }
-//        }
-//    }
-    
+    override var isHidden: Bool{
+        willSet{
+            let lastHidden = self.isHidden
+            if !lastHidden && newValue {
+                self.state = QSCRefreshState.QSCRefreshStateIdle
+                self.scrollView?.contentInset.bottom -= self.height
+            }else if(lastHidden && !newValue){
+                self.scrollView?.contentInset.bottom += self.height
+                self.y = (scrollView?.contentSize.height)!
+            }
+        }
+    }
     
     override func scrollViewContentSizeDidChange(change: [NSKeyValueChangeKey : Any]) {
         super.scrollViewContentSizeDidChange(change: change)
@@ -117,7 +119,7 @@ class QSCRefreshFooter: QSCRefreshComponent {
     }
     
     override var state: QSCRefreshState?{
-        didSet(oldValue) {
+        didSet(newValue) {
             if state == QSCRefreshState.QSCRefreshStateRefreshing {
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
@@ -127,7 +129,7 @@ class QSCRefreshFooter: QSCRefreshComponent {
                 })
                 
             }else if (state == QSCRefreshState.QSCRefreshStateNoMoreData || state == QSCRefreshState.QSCRefreshStateIdle){
-                if oldValue == QSCRefreshState.QSCRefreshStateRefreshing  {
+                if newValue == QSCRefreshState.QSCRefreshStateRefreshing  {
                     self.myendRefreshingCompletionBlock?()
                 }
             }

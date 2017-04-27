@@ -36,8 +36,7 @@ class QSCRefreshHeader: QSCRefreshComponent {
     override func placeMySubviwes() {
         super.placeMySubviwes()
         
-        
-//        self.y  =  -self.height - self.ignoredScrollViewContentInsetTop!
+        self.y  =  -self.height - self.ignoredScrollViewContentInsetTop!
     }
     
     
