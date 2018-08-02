@@ -10,6 +10,16 @@ let  QSCRefreshFooterHeight:CGFloat = 44
 
 import UIKit
 
+
+
+
+
+
+
+
+
+
+
 class QSCRefreshFooter: QSCRefreshComponent {
 
     class func footerWithRefreshingBlock(refreshingBlock:@escaping QSCRefreshComponentRefreshingBlock)->Self{
